@@ -17,4 +17,5 @@
 //= require jquery.details
 //= require jquery.textchange
 //= require preorder
+//= require messages
 //= require_tree .

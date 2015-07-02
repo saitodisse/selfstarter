@@ -1,0 +1,49 @@
+.panel-body
+{
+  display: inline-block;
+  text-align: right;
+}
+
+#btn-sign-in
+{
+  margin-top: 15px;
+}
+
+.devise-links
+{
+  text-align: center;
+  margin-top: 40px;
+}
+
+.devise-links > a
+{
+  margin-bottom: 20px;
+}
+
+.field_with_errors
+{
+  display: inline-block;
+}
+
+.field_with_errors input
+{
+  background: rgb(255, 215, 215);
+}
+
+.form-group input
+{
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #CCC;
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+form > input.blue_button
+{
+  margin-top: 5px;
+  padding: 15px;
+  border: none;
+  display: inline !important;
+  cursor: pointer;
+}
