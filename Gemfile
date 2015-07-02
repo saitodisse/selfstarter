@@ -6,7 +6,8 @@ gem 'rails', '4.0.0'
 gem 'json', '~> 1.7.7'
 
 group :development do
-  gem 'sqlite3'
+  # gem 'sqlite3'
+  gem 'pg'
   gem 'pry-rails'
 end
 
