@@ -17,3 +17,25 @@
   background: #fcfcfc;
   position: relative;
 }
+
+.header-links
+{
+  float: right;
+  line-height: 42px;
+  color: #8b8a8a;
+  font-size: 18px;
+}
+
+.header-links > a
+{
+  margin-left: 20px;
+}
+
+.header-links > a.blue_button
+{
+  margin-top: 5px;
+  padding: 15px;
+  border: none;
+  display: inline !important;
+  cursor: pointer;
+}

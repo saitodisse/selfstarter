@@ -1,5 +1,11 @@
 <div id="header">
   <div class="wrapper clearfix">
     <h1 id="lockitron_header"><a href="/"><%= Settings.product_name %></a></h1>
+    <div class="header-links">
+        <%= link_to t(".edit_profile", :default => "Edit profile"), edit_user_registration_path if user_signed_in? %>
+        <%= link_to t(".logout", :default => "Logout"), destroy_user_session_path if user_signed_in? %>
+        <%= link_to t(".signin", :default => "Sign in"), new_user_session_path unless user_signed_in? %>
+        <%= link_to t(".signup", :default => "Sign up"), new_user_registration_path, :class => 'btn btn-primary blue_button' unless user_signed_in? %>
+    </div>
   </div>
 </div>
