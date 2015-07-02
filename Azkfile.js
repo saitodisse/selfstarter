@@ -5,7 +5,7 @@
 systems({
   selfstarter: {
     // Dependent systems
-    depends: ["postgres"],
+    depends: ["postgres", "mail"],
     // More images:  http://images.azk.io
     image: {"docker": "azukiapp/ruby:2.0"},
     // Steps to execute before running instances
@@ -40,6 +40,7 @@ systems({
       RUBY_ENV: "development",
       RAILS_ENV: "development",
       BUNDLE_APP_CONFIG: "/azk/bundler",
+      APP_HOST: "#{system.name}.#{azk.default_domain}",
     },
   },
   postgres: {
@@ -67,6 +68,22 @@ systems({
       // check this gist to configure your database
       // https://gist.github.com/gullitmiranda/62082f2e47c364ef9617
       DATABASE_URL: "postgres://#{envs.POSTGRESQL_USER}:#{envs.POSTGRESQL_PASS}@#{net.host}:#{net.port.data}/${envs.POSTGRESQL_DB}",
+    },
+  },
+  mail: {
+    // Dependent systems
+    depends: [],
+    // More images:  http://images.azk.io
+    image: {"docker": "schickling/mailcatcher"},
+    http: {
+      domains: [
+        "#{system.name}.azkdemo.#{azk.default_domain}",
+      ],
+    },
+    ports: {
+      // exports global variables
+      http: "1080/tcp",
+      smtp: "1025/tcp",
     },
   },
 });

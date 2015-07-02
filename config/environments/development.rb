@@ -34,4 +34,10 @@ Selfstarter::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Mailcatcher
+  config.action_mailer.delivery_method     = :smtp
+  config.action_mailer.smtp_settings       = { address: ENV['MAIL_SMTP_HOST'], port: ENV['MAIL_SMTP_PORT'] }
+  config.action_mailer.default_url_options = { host: ENV['APP_HOST'] }
+
 end
