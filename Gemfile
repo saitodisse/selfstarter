@@ -41,3 +41,6 @@ gem 'rails_config'
 
 # For Heroku
 gem 'rails_12factor'
+
+# Authentication
+gem 'devise'
