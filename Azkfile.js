@@ -27,7 +27,10 @@ systems({
     },
     scalable: {"default": 1},
     http: {
-      domains: [ "#{system.name}.#{azk.default_domain}" ]
+      domains: [
+        "#{system.name}.#{azk.default_domain}",
+        "#{process.env.AZK_HOST_IP}"
+      ]
     },
     ports: {
       // exports global variables
@@ -84,6 +87,17 @@ systems({
       // exports global variables
       http: "1080/tcp",
       smtp: "1025/tcp",
+    },
+  },
+  deploy: {
+    image: {"docker": "azukiapp/deploy-digitalocean"},
+    mounts: {
+      "/azk/deploy/src" : path("."),
+      "/azk/deploy/.ssh": path("#{process.env.HOME}/.ssh"),
+    },
+    scalable: {"default": 0, "limit": 0},
+    envs: {
+      API_TOKEN: "#{process.env.DIGITALOCEAN_API_TOKEN}",
     },
   },
 });
